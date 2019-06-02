@@ -177,5 +177,19 @@
         <table tableName="litemall_log">
             <generatedKey column="id" sqlStatement="MySql" identity="true"/>
         </table>
+         <table tableName="litemall_user_follow">
+            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+        </table>
+        <table tableName="litemall_social_dynamic">
+            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+            <columnOverride column="picture" javaType="java.lang.Integer[]"
+                            typeHandler="org.linlinjava.litemall.db.mybatis.JsonIntegerArrayTypeHandler"/>
+        </table>
+        <table tableName="litemall_social_comment">
+            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+        </table>
+        <table tableName="litemall_social_reply">
+            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+        </table>
     </context>
 </generatorConfiguration>

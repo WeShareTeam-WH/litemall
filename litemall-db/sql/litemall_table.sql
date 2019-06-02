@@ -778,3 +778,68 @@ CREATE TABLE `litemall_user_formid` (
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
 -- Dump completed on 2018-12-10 16:59:09
+
+-- Joseph add 2019/6/2 for user follow（关注）
+/*
+1 用户A关注了用户B
+插入两条记录
+insert user_relation(user_id,follower_id,relation_type) values(a_id,b_id,1);//增加一个关注的人
+insert user_relation(user_id,follower_id,relation_type) values(b_id,a_id,2);//增加一个粉丝
+2 查用户A关注的所有用户
+select * from user_relation where user_id=a_id and relation_type=1
+3 查用户A有多少粉丝
+select * from user_relation where user_id=a_id and relation_type=2
+*/
+DROP TABLE IF EXISTS `litemall_user_follow`;
+CREATE TABLE `litemall_user_follow` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) NOT NULL COMMENT '被关注用户id',
+  `follower_id` int(11) NOT NULL COMMENT '粉丝id',
+  `relation_type` tinyint(3) NOT NULL DEFAULT '1' COMMENT '关注类型：1=关注 2=粉丝',
+  `add_time` datetime DEFAULT NULL COMMENT '创建时间',
+  `update_time` datetime DEFAULT NULL COMMENT '更新时间',
+  `deleted` tinyint(1) DEFAULT '0' COMMENT '逻辑删除',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COMMENT='用户关注粉丝表';
+
+-- Joseph add 2019/6/2 for litemall_social_dynamic（社交动态）
+DROP TABLE IF EXISTS `litemall_social_dynamic`;
+CREATE TABLE `litemall_social_dynamic` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `ower_id` int(11) NOT NULL COMMENT '动态主人',
+  `title` varchar(255) NOT NULL DEFAULT '''' COMMENT '专题标题',
+  `content` text COMMENT '专题内容，富文本格式',
+  `picture` text COMMENT '存储图片链接, json数组形式,扩展性强',-- [{url:'http://xxx.png'}, {url:'http://xxx.png'}]
+  `add_time` datetime DEFAULT NULL COMMENT '创建时间',
+  `update_time` datetime DEFAULT NULL COMMENT '更新时间',
+  `deleted` tinyint(1) DEFAULT '0' COMMENT '逻辑删除',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COMMENT='社交动态表';
+
+-- Joseph add 2019/6/2 for litemall_social_comment（社交动态的评论）
+DROP TABLE IF EXISTS `litemall_social_comment`;
+CREATE TABLE `litemall_social_comment` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `dynamic_id` int(11) NOT NULL COMMENT '被关注用户id',
+  `user_id` int(11) NOT NULL COMMENT '评论人',
+  `content` text COMMENT '专题内容，富文本格式',
+  `add_time` datetime DEFAULT NULL COMMENT '创建时间',
+  `update_time` datetime DEFAULT NULL COMMENT '更新时间',
+  `deleted` tinyint(1) DEFAULT '0' COMMENT '逻辑删除',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COMMENT='社交动态的评论表';
+
+-- Joseph add 2019/6/2 for litemall_social_reply（社交动态的评论的回复）
+DROP TABLE IF EXISTS `litemall_social_reply`;
+CREATE TABLE `litemall_social_reply` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `dynamic_id` int(11) NOT NULL COMMENT '所属动态id',
+  `comment_id` int(11) NOT NULL COMMENT '所属评论id',
+  `reply_from` int(11) NOT NULL COMMENT '发起回复的人',
+  `reply_to` int(11) NOT NULL COMMENT '回复给的目标人',
+  `content` text COMMENT '专题内容，富文本格式',
+  `add_time` datetime DEFAULT NULL COMMENT '创建时间',
+  `update_time` datetime DEFAULT NULL COMMENT '更新时间',
+  `deleted` tinyint(1) DEFAULT '0' COMMENT '逻辑删除',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COMMENT='社交动态的评论的回复表';
