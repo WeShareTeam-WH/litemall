@@ -37,11 +37,13 @@
     "pages/groupon/grouponDetail/grouponDetail",
     "pages/groupon/grouponList/grouponList",
     "pages/coupon/coupon",
-    "pages/help/help"
+    "pages/help/help",
+    "pages/life/life",
+    "pages/addtopic/addtopic"
   ],
   "window": {
     "navigationBarBackgroundColor": "#FFFFFF",
-    "navigationBarTitleText": "litemall小程序商城",
+    "navigationBarTitleText": "鲜衣怒马",
     "enablePullDownRefresh": true,
     "navigationBarTextStyle": "black",
     "backgroundColor": "#FFFFFF",
@@ -60,10 +62,16 @@
         "text": "首页"
       },
       {
-        "pagePath": "pages/catalog/catalog",
+        "pagePath": "pages/life/life",
         "iconPath": "static/images/category.png",
         "selectedIconPath": "static/images/category@selected.png",
-        "text": "分类"
+        "text": "生活"
+      },
+      {
+        "pagePath": "pages/addtopic/addtopic",
+        "iconPath": "static/images/add.png",
+        "selectedIconPath": "static/images/add.png",
+        "text": "添加"
       },
       {
         "pagePath": "pages/cart/cart",

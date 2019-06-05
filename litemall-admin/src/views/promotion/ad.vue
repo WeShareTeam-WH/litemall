@@ -69,6 +69,7 @@
         <el-form-item label="广告位置" prop="position">
           <el-select v-model="dataForm.position" placeholder="请选择">
             <el-option :value="1" label="首页"/>
+            <el-option :value="2" label="生活"/>
           </el-select>
         </el-form-item>
         <el-form-item label="活动链接" prop="link">

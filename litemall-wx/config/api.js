@@ -97,4 +97,6 @@ module.exports = {
   UserIndex: WxApiRoot + 'user/index', //个人页面用户相关信息
   IssueList: WxApiRoot + 'issue/list', //帮助信息
 
+  LifeUrl: WxApiRoot + 'life/index', //生活主页面接口
+  UploadLifeMessage: WxApiRoot + 'life/upload', //生活发布接口
 };

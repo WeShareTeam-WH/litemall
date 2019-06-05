@@ -1,0 +1,37 @@
+<template name="topicItem">
+    <view class="topic">
+        <navigator url="{{detailUrl + '?id=' + id}}">
+            <view class="topic__info meta">
+                <view class="meta__header">
+                    <image src="{{ author.avatar_url }}" />
+                </view>
+                <view class="meta__body">
+                    <text class="topic__author">{{ author.loginname }}</text>
+                    <text class="topic__reply__at">{{create_at}} {{author.description }}</text>
+                </view>
+            </view>
+
+            <view class="topic__content">
+                <text class="topic__title">{{ title }}</text>
+                <text class="topic__summary">{{ content }}</text>
+            </view>
+
+            <view class="topic__meta meta flex-between">
+              <view class="flex-wrp meta__left" style="flex-direction:row;">
+                <view class="flex-item" style='align-self:left'>
+                  <image class="icon" src="/static/images/zan.png" />
+                  <text class="topic__reply">点赞</text>
+                </view>
+                <view class="flex-item" style='align-self:center'>
+                  <image class="icon" src="/static/images/pinglun.png" />
+                  <text class="topic__reply">{{comment_number}}</text>
+                </view>
+                <view class="flex-item" style='align-self:right'>
+                  <image class="icon" src="/static/images/share1.png" />
+                  <text class="topic__reply">分享</text>
+                </view>
+              </view>
+            </view>
+        </navigator>
+    </view>
+</template>

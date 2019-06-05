@@ -1,0 +1,13 @@
+.topic__edit {
+  padding: 20rpx;
+}
+
+.upload-button-view {
+  position: fixed;
+  bottom: 10px;
+  width: 100%;
+}
+
+.upload-button {
+  margin-right: 30px;
+}

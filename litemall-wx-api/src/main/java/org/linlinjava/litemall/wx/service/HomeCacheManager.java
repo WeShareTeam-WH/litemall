@@ -12,6 +12,7 @@ public class HomeCacheManager {
     public static final String INDEX = "index";
     public static final String CATALOG = "catalog";
     public static final String GOODS = "goods";
+    public static final String LIFE = "life";
 
     private static Map<String, Map<String, Object>> cacheDataList = new HashMap<>();
 

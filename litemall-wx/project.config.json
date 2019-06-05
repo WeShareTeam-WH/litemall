@@ -11,7 +11,7 @@
 	"compileType": "miniprogram",
 	"libVersion": "2.4.0",
 	"appid": "wx4b2c41533a6ff8a9",
-	"projectname": "litemall-wx",
+	"projectname": "鲜衣怒马",
 	"simulatorType": "wechat",
 	"simulatorPluginLibVersion": {},
 	"condition": {
@@ -259,6 +259,12 @@
 					"id": -1,
 					"name": "优惠券列表",
 					"pathName": "pages/coupon/coupon",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "生活",
+					"pathName": "pages/life/life",
 					"query": ""
 				},
 				{
