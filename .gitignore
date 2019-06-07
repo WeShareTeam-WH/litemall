@@ -3,3 +3,7 @@
 /storage/
 /litemall.iml
 .idea
+*.class
+/target/
+.gitignore
+*.swp
