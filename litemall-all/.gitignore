@@ -1,3 +1,8 @@
 
 /target/
 /litemall-all.iml
+*.class
+.gitignore
+*.swp
+.project
+bin/
