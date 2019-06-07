@@ -2,3 +2,5 @@
 /target/
 /litemall-core.iml
 /storage/
+.project
+bin/

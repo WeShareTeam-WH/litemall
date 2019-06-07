@@ -791,6 +791,8 @@ select * from user_relation where user_id=a_id and relation_type=1
 select * from user_relation where user_id=a_id and relation_type=2
 */
 DROP TABLE IF EXISTS `litemall_user_follow`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `litemall_user_follow` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) NOT NULL COMMENT '被关注用户id',
@@ -801,9 +803,12 @@ CREATE TABLE `litemall_user_follow` (
   `deleted` tinyint(1) DEFAULT '0' COMMENT '逻辑删除',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COMMENT='用户关注粉丝表';
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 -- Joseph add 2019/6/2 for litemall_social_dynamic（社交动态）
 DROP TABLE IF EXISTS `litemall_social_dynamic`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `litemall_social_dynamic` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `ower_id` int(11) NOT NULL COMMENT '动态主人',
@@ -815,9 +820,12 @@ CREATE TABLE `litemall_social_dynamic` (
   `deleted` tinyint(1) DEFAULT '0' COMMENT '逻辑删除',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COMMENT='社交动态表';
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 -- Joseph add 2019/6/2 for litemall_social_comment（社交动态的评论）
 DROP TABLE IF EXISTS `litemall_social_comment`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `litemall_social_comment` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `dynamic_id` int(11) NOT NULL COMMENT '被关注用户id',
@@ -828,9 +836,12 @@ CREATE TABLE `litemall_social_comment` (
   `deleted` tinyint(1) DEFAULT '0' COMMENT '逻辑删除',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COMMENT='社交动态的评论表';
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 -- Joseph add 2019/6/2 for litemall_social_reply（社交动态的评论的回复）
 DROP TABLE IF EXISTS `litemall_social_reply`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `litemall_social_reply` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `dynamic_id` int(11) NOT NULL COMMENT '所属动态id',
@@ -843,3 +854,4 @@ CREATE TABLE `litemall_social_reply` (
   `deleted` tinyint(1) DEFAULT '0' COMMENT '逻辑删除',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COMMENT='社交动态的评论的回复表';
+/*!40101 SET character_set_client = @saved_cs_client */;
