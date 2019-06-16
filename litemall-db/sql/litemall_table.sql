@@ -815,6 +815,7 @@ CREATE TABLE `litemall_social_dynamic` (
   `title` varchar(255) NOT NULL DEFAULT '''' COMMENT '专题标题',
   `content` text COMMENT '专题内容，富文本格式',
   `picture` text COMMENT '存储图片链接, json数组形式,扩展性强',-- [{url:'http://xxx.png'}, {url:'http://xxx.png'}]
+  `clap` int(11) DEFAULT '0' COMMENT '点赞数量',
   `add_time` datetime DEFAULT NULL COMMENT '创建时间',
   `update_time` datetime DEFAULT NULL COMMENT '更新时间',
   `deleted` tinyint(1) DEFAULT '0' COMMENT '逻辑删除',
@@ -831,6 +832,7 @@ CREATE TABLE `litemall_social_comment` (
   `dynamic_id` int(11) NOT NULL COMMENT '被关注用户id',
   `user_id` int(11) NOT NULL COMMENT '评论人',
   `content` text COMMENT '专题内容，富文本格式',
+  `clap` int(11) DEFAULT '0' COMMENT '点赞数量',
   `add_time` datetime DEFAULT NULL COMMENT '创建时间',
   `update_time` datetime DEFAULT NULL COMMENT '更新时间',
   `deleted` tinyint(1) DEFAULT '0' COMMENT '逻辑删除',
@@ -849,6 +851,7 @@ CREATE TABLE `litemall_social_reply` (
   `reply_from` int(11) NOT NULL COMMENT '发起回复的人',
   `reply_to` int(11) NOT NULL COMMENT '回复给的目标人',
   `content` text COMMENT '专题内容，富文本格式',
+  `clap` int(11) DEFAULT '0' COMMENT '点赞数量',
   `add_time` datetime DEFAULT NULL COMMENT '创建时间',
   `update_time` datetime DEFAULT NULL COMMENT '更新时间',
   `deleted` tinyint(1) DEFAULT '0' COMMENT '逻辑删除',
