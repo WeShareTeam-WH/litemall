@@ -57,7 +57,7 @@
         <javaClientGenerator type="XMLMAPPER" targetPackage="org.linlinjava.litemall.db.dao"
                              targetProject="src/main/java"/>
         <!--表名-->
-        <!-- <table tableName="litemall_ad">
+        <table tableName="litemall_ad">
             <generatedKey column="id" sqlStatement="MySql" identity="true"/>
         </table>
         <table tableName="litemall_address">
@@ -180,7 +180,7 @@
         </table>
          <table tableName="litemall_user_follow">
             <generatedKey column="id" sqlStatement="MySql" identity="true"/>
-        </table> -->
+        </table>
         <table tableName="litemall_social_dynamic">
             <generatedKey column="id" sqlStatement="MySql" identity="true"/>  
             <columnOverride column="content" javaType="java.lang.String" jdbcType="VARCHAR" />  
