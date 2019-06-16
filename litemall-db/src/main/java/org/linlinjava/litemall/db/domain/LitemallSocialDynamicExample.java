@@ -284,7 +284,7 @@ public class LitemallSocialDynamicExample {
          *
          * @mbg.generated
          */
-        public Criteria andIdEqualToColumn(LitemallSocialDynamicWithBLOBs.Column column) {
+        public Criteria andIdEqualToColumn(LitemallSocialDynamic.Column column) {
             addCriterion(new StringBuilder("id = ").append(column.getEscapedColumnName()).toString());
             return (Criteria) this;
         }
@@ -300,7 +300,7 @@ public class LitemallSocialDynamicExample {
          *
          * @mbg.generated
          */
-        public Criteria andIdNotEqualToColumn(LitemallSocialDynamicWithBLOBs.Column column) {
+        public Criteria andIdNotEqualToColumn(LitemallSocialDynamic.Column column) {
             addCriterion(new StringBuilder("id <> ").append(column.getEscapedColumnName()).toString());
             return (Criteria) this;
         }
@@ -316,7 +316,7 @@ public class LitemallSocialDynamicExample {
          *
          * @mbg.generated
          */
-        public Criteria andIdGreaterThanColumn(LitemallSocialDynamicWithBLOBs.Column column) {
+        public Criteria andIdGreaterThanColumn(LitemallSocialDynamic.Column column) {
             addCriterion(new StringBuilder("id > ").append(column.getEscapedColumnName()).toString());
             return (Criteria) this;
         }
@@ -332,7 +332,7 @@ public class LitemallSocialDynamicExample {
          *
          * @mbg.generated
          */
-        public Criteria andIdGreaterThanOrEqualToColumn(LitemallSocialDynamicWithBLOBs.Column column) {
+        public Criteria andIdGreaterThanOrEqualToColumn(LitemallSocialDynamic.Column column) {
             addCriterion(new StringBuilder("id >= ").append(column.getEscapedColumnName()).toString());
             return (Criteria) this;
         }
@@ -348,7 +348,7 @@ public class LitemallSocialDynamicExample {
          *
          * @mbg.generated
          */
-        public Criteria andIdLessThanColumn(LitemallSocialDynamicWithBLOBs.Column column) {
+        public Criteria andIdLessThanColumn(LitemallSocialDynamic.Column column) {
             addCriterion(new StringBuilder("id < ").append(column.getEscapedColumnName()).toString());
             return (Criteria) this;
         }
@@ -364,7 +364,7 @@ public class LitemallSocialDynamicExample {
          *
          * @mbg.generated
          */
-        public Criteria andIdLessThanOrEqualToColumn(LitemallSocialDynamicWithBLOBs.Column column) {
+        public Criteria andIdLessThanOrEqualToColumn(LitemallSocialDynamic.Column column) {
             addCriterion(new StringBuilder("id <= ").append(column.getEscapedColumnName()).toString());
             return (Criteria) this;
         }
@@ -410,7 +410,7 @@ public class LitemallSocialDynamicExample {
          *
          * @mbg.generated
          */
-        public Criteria andOwerIdEqualToColumn(LitemallSocialDynamicWithBLOBs.Column column) {
+        public Criteria andOwerIdEqualToColumn(LitemallSocialDynamic.Column column) {
             addCriterion(new StringBuilder("ower_id = ").append(column.getEscapedColumnName()).toString());
             return (Criteria) this;
         }
@@ -426,7 +426,7 @@ public class LitemallSocialDynamicExample {
          *
          * @mbg.generated
          */
-        public Criteria andOwerIdNotEqualToColumn(LitemallSocialDynamicWithBLOBs.Column column) {
+        public Criteria andOwerIdNotEqualToColumn(LitemallSocialDynamic.Column column) {
             addCriterion(new StringBuilder("ower_id <> ").append(column.getEscapedColumnName()).toString());
             return (Criteria) this;
         }
@@ -442,7 +442,7 @@ public class LitemallSocialDynamicExample {
          *
          * @mbg.generated
          */
-        public Criteria andOwerIdGreaterThanColumn(LitemallSocialDynamicWithBLOBs.Column column) {
+        public Criteria andOwerIdGreaterThanColumn(LitemallSocialDynamic.Column column) {
             addCriterion(new StringBuilder("ower_id > ").append(column.getEscapedColumnName()).toString());
             return (Criteria) this;
         }
@@ -458,7 +458,7 @@ public class LitemallSocialDynamicExample {
          *
          * @mbg.generated
          */
-        public Criteria andOwerIdGreaterThanOrEqualToColumn(LitemallSocialDynamicWithBLOBs.Column column) {
+        public Criteria andOwerIdGreaterThanOrEqualToColumn(LitemallSocialDynamic.Column column) {
             addCriterion(new StringBuilder("ower_id >= ").append(column.getEscapedColumnName()).toString());
             return (Criteria) this;
         }
@@ -474,7 +474,7 @@ public class LitemallSocialDynamicExample {
          *
          * @mbg.generated
          */
-        public Criteria andOwerIdLessThanColumn(LitemallSocialDynamicWithBLOBs.Column column) {
+        public Criteria andOwerIdLessThanColumn(LitemallSocialDynamic.Column column) {
             addCriterion(new StringBuilder("ower_id < ").append(column.getEscapedColumnName()).toString());
             return (Criteria) this;
         }
@@ -490,7 +490,7 @@ public class LitemallSocialDynamicExample {
          *
          * @mbg.generated
          */
-        public Criteria andOwerIdLessThanOrEqualToColumn(LitemallSocialDynamicWithBLOBs.Column column) {
+        public Criteria andOwerIdLessThanOrEqualToColumn(LitemallSocialDynamic.Column column) {
             addCriterion(new StringBuilder("ower_id <= ").append(column.getEscapedColumnName()).toString());
             return (Criteria) this;
         }
@@ -536,7 +536,7 @@ public class LitemallSocialDynamicExample {
          *
          * @mbg.generated
          */
-        public Criteria andTitleEqualToColumn(LitemallSocialDynamicWithBLOBs.Column column) {
+        public Criteria andTitleEqualToColumn(LitemallSocialDynamic.Column column) {
             addCriterion(new StringBuilder("title = ").append(column.getEscapedColumnName()).toString());
             return (Criteria) this;
         }
@@ -552,7 +552,7 @@ public class LitemallSocialDynamicExample {
          *
          * @mbg.generated
          */
-        public Criteria andTitleNotEqualToColumn(LitemallSocialDynamicWithBLOBs.Column column) {
+        public Criteria andTitleNotEqualToColumn(LitemallSocialDynamic.Column column) {
             addCriterion(new StringBuilder("title <> ").append(column.getEscapedColumnName()).toString());
             return (Criteria) this;
         }
@@ -568,7 +568,7 @@ public class LitemallSocialDynamicExample {
          *
          * @mbg.generated
          */
-        public Criteria andTitleGreaterThanColumn(LitemallSocialDynamicWithBLOBs.Column column) {
+        public Criteria andTitleGreaterThanColumn(LitemallSocialDynamic.Column column) {
             addCriterion(new StringBuilder("title > ").append(column.getEscapedColumnName()).toString());
             return (Criteria) this;
         }
@@ -584,7 +584,7 @@ public class LitemallSocialDynamicExample {
          *
          * @mbg.generated
          */
-        public Criteria andTitleGreaterThanOrEqualToColumn(LitemallSocialDynamicWithBLOBs.Column column) {
+        public Criteria andTitleGreaterThanOrEqualToColumn(LitemallSocialDynamic.Column column) {
             addCriterion(new StringBuilder("title >= ").append(column.getEscapedColumnName()).toString());
             return (Criteria) this;
         }
@@ -600,7 +600,7 @@ public class LitemallSocialDynamicExample {
          *
          * @mbg.generated
          */
-        public Criteria andTitleLessThanColumn(LitemallSocialDynamicWithBLOBs.Column column) {
+        public Criteria andTitleLessThanColumn(LitemallSocialDynamic.Column column) {
             addCriterion(new StringBuilder("title < ").append(column.getEscapedColumnName()).toString());
             return (Criteria) this;
         }
@@ -616,7 +616,7 @@ public class LitemallSocialDynamicExample {
          *
          * @mbg.generated
          */
-        public Criteria andTitleLessThanOrEqualToColumn(LitemallSocialDynamicWithBLOBs.Column column) {
+        public Criteria andTitleLessThanOrEqualToColumn(LitemallSocialDynamic.Column column) {
             addCriterion(new StringBuilder("title <= ").append(column.getEscapedColumnName()).toString());
             return (Criteria) this;
         }
@@ -651,6 +651,268 @@ public class LitemallSocialDynamicExample {
             return (Criteria) this;
         }
 
+        public Criteria andContentIsNull() {
+            addCriterion("content is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andContentIsNotNull() {
+            addCriterion("content is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andContentEqualTo(String value) {
+            addCriterion("content =", value, "content");
+            return (Criteria) this;
+        }
+
+        /**
+         * This method was generated by MyBatis Generator.
+         * This method corresponds to the database table litemall_social_dynamic
+         *
+         * @mbg.generated
+         */
+        public Criteria andContentEqualToColumn(LitemallSocialDynamic.Column column) {
+            addCriterion(new StringBuilder("content = ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andContentNotEqualTo(String value) {
+            addCriterion("content <>", value, "content");
+            return (Criteria) this;
+        }
+
+        /**
+         * This method was generated by MyBatis Generator.
+         * This method corresponds to the database table litemall_social_dynamic
+         *
+         * @mbg.generated
+         */
+        public Criteria andContentNotEqualToColumn(LitemallSocialDynamic.Column column) {
+            addCriterion(new StringBuilder("content <> ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andContentGreaterThan(String value) {
+            addCriterion("content >", value, "content");
+            return (Criteria) this;
+        }
+
+        /**
+         * This method was generated by MyBatis Generator.
+         * This method corresponds to the database table litemall_social_dynamic
+         *
+         * @mbg.generated
+         */
+        public Criteria andContentGreaterThanColumn(LitemallSocialDynamic.Column column) {
+            addCriterion(new StringBuilder("content > ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andContentGreaterThanOrEqualTo(String value) {
+            addCriterion("content >=", value, "content");
+            return (Criteria) this;
+        }
+
+        /**
+         * This method was generated by MyBatis Generator.
+         * This method corresponds to the database table litemall_social_dynamic
+         *
+         * @mbg.generated
+         */
+        public Criteria andContentGreaterThanOrEqualToColumn(LitemallSocialDynamic.Column column) {
+            addCriterion(new StringBuilder("content >= ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andContentLessThan(String value) {
+            addCriterion("content <", value, "content");
+            return (Criteria) this;
+        }
+
+        /**
+         * This method was generated by MyBatis Generator.
+         * This method corresponds to the database table litemall_social_dynamic
+         *
+         * @mbg.generated
+         */
+        public Criteria andContentLessThanColumn(LitemallSocialDynamic.Column column) {
+            addCriterion(new StringBuilder("content < ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andContentLessThanOrEqualTo(String value) {
+            addCriterion("content <=", value, "content");
+            return (Criteria) this;
+        }
+
+        /**
+         * This method was generated by MyBatis Generator.
+         * This method corresponds to the database table litemall_social_dynamic
+         *
+         * @mbg.generated
+         */
+        public Criteria andContentLessThanOrEqualToColumn(LitemallSocialDynamic.Column column) {
+            addCriterion(new StringBuilder("content <= ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andContentLike(String value) {
+            addCriterion("content like", value, "content");
+            return (Criteria) this;
+        }
+
+        public Criteria andContentNotLike(String value) {
+            addCriterion("content not like", value, "content");
+            return (Criteria) this;
+        }
+
+        public Criteria andContentIn(List<String> values) {
+            addCriterion("content in", values, "content");
+            return (Criteria) this;
+        }
+
+        public Criteria andContentNotIn(List<String> values) {
+            addCriterion("content not in", values, "content");
+            return (Criteria) this;
+        }
+
+        public Criteria andContentBetween(String value1, String value2) {
+            addCriterion("content between", value1, value2, "content");
+            return (Criteria) this;
+        }
+
+        public Criteria andContentNotBetween(String value1, String value2) {
+            addCriterion("content not between", value1, value2, "content");
+            return (Criteria) this;
+        }
+
+        public Criteria andClapIsNull() {
+            addCriterion("clap is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andClapIsNotNull() {
+            addCriterion("clap is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andClapEqualTo(Integer value) {
+            addCriterion("clap =", value, "clap");
+            return (Criteria) this;
+        }
+
+        /**
+         * This method was generated by MyBatis Generator.
+         * This method corresponds to the database table litemall_social_dynamic
+         *
+         * @mbg.generated
+         */
+        public Criteria andClapEqualToColumn(LitemallSocialDynamic.Column column) {
+            addCriterion(new StringBuilder("clap = ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andClapNotEqualTo(Integer value) {
+            addCriterion("clap <>", value, "clap");
+            return (Criteria) this;
+        }
+
+        /**
+         * This method was generated by MyBatis Generator.
+         * This method corresponds to the database table litemall_social_dynamic
+         *
+         * @mbg.generated
+         */
+        public Criteria andClapNotEqualToColumn(LitemallSocialDynamic.Column column) {
+            addCriterion(new StringBuilder("clap <> ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andClapGreaterThan(Integer value) {
+            addCriterion("clap >", value, "clap");
+            return (Criteria) this;
+        }
+
+        /**
+         * This method was generated by MyBatis Generator.
+         * This method corresponds to the database table litemall_social_dynamic
+         *
+         * @mbg.generated
+         */
+        public Criteria andClapGreaterThanColumn(LitemallSocialDynamic.Column column) {
+            addCriterion(new StringBuilder("clap > ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andClapGreaterThanOrEqualTo(Integer value) {
+            addCriterion("clap >=", value, "clap");
+            return (Criteria) this;
+        }
+
+        /**
+         * This method was generated by MyBatis Generator.
+         * This method corresponds to the database table litemall_social_dynamic
+         *
+         * @mbg.generated
+         */
+        public Criteria andClapGreaterThanOrEqualToColumn(LitemallSocialDynamic.Column column) {
+            addCriterion(new StringBuilder("clap >= ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andClapLessThan(Integer value) {
+            addCriterion("clap <", value, "clap");
+            return (Criteria) this;
+        }
+
+        /**
+         * This method was generated by MyBatis Generator.
+         * This method corresponds to the database table litemall_social_dynamic
+         *
+         * @mbg.generated
+         */
+        public Criteria andClapLessThanColumn(LitemallSocialDynamic.Column column) {
+            addCriterion(new StringBuilder("clap < ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andClapLessThanOrEqualTo(Integer value) {
+            addCriterion("clap <=", value, "clap");
+            return (Criteria) this;
+        }
+
+        /**
+         * This method was generated by MyBatis Generator.
+         * This method corresponds to the database table litemall_social_dynamic
+         *
+         * @mbg.generated
+         */
+        public Criteria andClapLessThanOrEqualToColumn(LitemallSocialDynamic.Column column) {
+            addCriterion(new StringBuilder("clap <= ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andClapIn(List<Integer> values) {
+            addCriterion("clap in", values, "clap");
+            return (Criteria) this;
+        }
+
+        public Criteria andClapNotIn(List<Integer> values) {
+            addCriterion("clap not in", values, "clap");
+            return (Criteria) this;
+        }
+
+        public Criteria andClapBetween(Integer value1, Integer value2) {
+            addCriterion("clap between", value1, value2, "clap");
+            return (Criteria) this;
+        }
+
+        public Criteria andClapNotBetween(Integer value1, Integer value2) {
+            addCriterion("clap not between", value1, value2, "clap");
+            return (Criteria) this;
+        }
+
         public Criteria andAddTimeIsNull() {
             addCriterion("add_time is null");
             return (Criteria) this;
@@ -672,7 +934,7 @@ public class LitemallSocialDynamicExample {
          *
          * @mbg.generated
          */
-        public Criteria andAddTimeEqualToColumn(LitemallSocialDynamicWithBLOBs.Column column) {
+        public Criteria andAddTimeEqualToColumn(LitemallSocialDynamic.Column column) {
             addCriterion(new StringBuilder("add_time = ").append(column.getEscapedColumnName()).toString());
             return (Criteria) this;
         }
@@ -688,7 +950,7 @@ public class LitemallSocialDynamicExample {
          *
          * @mbg.generated
          */
-        public Criteria andAddTimeNotEqualToColumn(LitemallSocialDynamicWithBLOBs.Column column) {
+        public Criteria andAddTimeNotEqualToColumn(LitemallSocialDynamic.Column column) {
             addCriterion(new StringBuilder("add_time <> ").append(column.getEscapedColumnName()).toString());
             return (Criteria) this;
         }
@@ -704,7 +966,7 @@ public class LitemallSocialDynamicExample {
          *
          * @mbg.generated
          */
-        public Criteria andAddTimeGreaterThanColumn(LitemallSocialDynamicWithBLOBs.Column column) {
+        public Criteria andAddTimeGreaterThanColumn(LitemallSocialDynamic.Column column) {
             addCriterion(new StringBuilder("add_time > ").append(column.getEscapedColumnName()).toString());
             return (Criteria) this;
         }
@@ -720,7 +982,7 @@ public class LitemallSocialDynamicExample {
          *
          * @mbg.generated
          */
-        public Criteria andAddTimeGreaterThanOrEqualToColumn(LitemallSocialDynamicWithBLOBs.Column column) {
+        public Criteria andAddTimeGreaterThanOrEqualToColumn(LitemallSocialDynamic.Column column) {
             addCriterion(new StringBuilder("add_time >= ").append(column.getEscapedColumnName()).toString());
             return (Criteria) this;
         }
@@ -736,7 +998,7 @@ public class LitemallSocialDynamicExample {
          *
          * @mbg.generated
          */
-        public Criteria andAddTimeLessThanColumn(LitemallSocialDynamicWithBLOBs.Column column) {
+        public Criteria andAddTimeLessThanColumn(LitemallSocialDynamic.Column column) {
             addCriterion(new StringBuilder("add_time < ").append(column.getEscapedColumnName()).toString());
             return (Criteria) this;
         }
@@ -752,7 +1014,7 @@ public class LitemallSocialDynamicExample {
          *
          * @mbg.generated
          */
-        public Criteria andAddTimeLessThanOrEqualToColumn(LitemallSocialDynamicWithBLOBs.Column column) {
+        public Criteria andAddTimeLessThanOrEqualToColumn(LitemallSocialDynamic.Column column) {
             addCriterion(new StringBuilder("add_time <= ").append(column.getEscapedColumnName()).toString());
             return (Criteria) this;
         }
@@ -798,7 +1060,7 @@ public class LitemallSocialDynamicExample {
          *
          * @mbg.generated
          */
-        public Criteria andUpdateTimeEqualToColumn(LitemallSocialDynamicWithBLOBs.Column column) {
+        public Criteria andUpdateTimeEqualToColumn(LitemallSocialDynamic.Column column) {
             addCriterion(new StringBuilder("update_time = ").append(column.getEscapedColumnName()).toString());
             return (Criteria) this;
         }
@@ -814,7 +1076,7 @@ public class LitemallSocialDynamicExample {
          *
          * @mbg.generated
          */
-        public Criteria andUpdateTimeNotEqualToColumn(LitemallSocialDynamicWithBLOBs.Column column) {
+        public Criteria andUpdateTimeNotEqualToColumn(LitemallSocialDynamic.Column column) {
             addCriterion(new StringBuilder("update_time <> ").append(column.getEscapedColumnName()).toString());
             return (Criteria) this;
         }
@@ -830,7 +1092,7 @@ public class LitemallSocialDynamicExample {
          *
          * @mbg.generated
          */
-        public Criteria andUpdateTimeGreaterThanColumn(LitemallSocialDynamicWithBLOBs.Column column) {
+        public Criteria andUpdateTimeGreaterThanColumn(LitemallSocialDynamic.Column column) {
             addCriterion(new StringBuilder("update_time > ").append(column.getEscapedColumnName()).toString());
             return (Criteria) this;
         }
@@ -846,7 +1108,7 @@ public class LitemallSocialDynamicExample {
          *
          * @mbg.generated
          */
-        public Criteria andUpdateTimeGreaterThanOrEqualToColumn(LitemallSocialDynamicWithBLOBs.Column column) {
+        public Criteria andUpdateTimeGreaterThanOrEqualToColumn(LitemallSocialDynamic.Column column) {
             addCriterion(new StringBuilder("update_time >= ").append(column.getEscapedColumnName()).toString());
             return (Criteria) this;
         }
@@ -862,7 +1124,7 @@ public class LitemallSocialDynamicExample {
          *
          * @mbg.generated
          */
-        public Criteria andUpdateTimeLessThanColumn(LitemallSocialDynamicWithBLOBs.Column column) {
+        public Criteria andUpdateTimeLessThanColumn(LitemallSocialDynamic.Column column) {
             addCriterion(new StringBuilder("update_time < ").append(column.getEscapedColumnName()).toString());
             return (Criteria) this;
         }
@@ -878,7 +1140,7 @@ public class LitemallSocialDynamicExample {
          *
          * @mbg.generated
          */
-        public Criteria andUpdateTimeLessThanOrEqualToColumn(LitemallSocialDynamicWithBLOBs.Column column) {
+        public Criteria andUpdateTimeLessThanOrEqualToColumn(LitemallSocialDynamic.Column column) {
             addCriterion(new StringBuilder("update_time <= ").append(column.getEscapedColumnName()).toString());
             return (Criteria) this;
         }
@@ -924,7 +1186,7 @@ public class LitemallSocialDynamicExample {
          *
          * @mbg.generated
          */
-        public Criteria andDeletedEqualToColumn(LitemallSocialDynamicWithBLOBs.Column column) {
+        public Criteria andDeletedEqualToColumn(LitemallSocialDynamic.Column column) {
             addCriterion(new StringBuilder("deleted = ").append(column.getEscapedColumnName()).toString());
             return (Criteria) this;
         }
@@ -940,7 +1202,7 @@ public class LitemallSocialDynamicExample {
          *
          * @mbg.generated
          */
-        public Criteria andDeletedNotEqualToColumn(LitemallSocialDynamicWithBLOBs.Column column) {
+        public Criteria andDeletedNotEqualToColumn(LitemallSocialDynamic.Column column) {
             addCriterion(new StringBuilder("deleted <> ").append(column.getEscapedColumnName()).toString());
             return (Criteria) this;
         }
@@ -956,7 +1218,7 @@ public class LitemallSocialDynamicExample {
          *
          * @mbg.generated
          */
-        public Criteria andDeletedGreaterThanColumn(LitemallSocialDynamicWithBLOBs.Column column) {
+        public Criteria andDeletedGreaterThanColumn(LitemallSocialDynamic.Column column) {
             addCriterion(new StringBuilder("deleted > ").append(column.getEscapedColumnName()).toString());
             return (Criteria) this;
         }
@@ -972,7 +1234,7 @@ public class LitemallSocialDynamicExample {
          *
          * @mbg.generated
          */
-        public Criteria andDeletedGreaterThanOrEqualToColumn(LitemallSocialDynamicWithBLOBs.Column column) {
+        public Criteria andDeletedGreaterThanOrEqualToColumn(LitemallSocialDynamic.Column column) {
             addCriterion(new StringBuilder("deleted >= ").append(column.getEscapedColumnName()).toString());
             return (Criteria) this;
         }
@@ -988,7 +1250,7 @@ public class LitemallSocialDynamicExample {
          *
          * @mbg.generated
          */
-        public Criteria andDeletedLessThanColumn(LitemallSocialDynamicWithBLOBs.Column column) {
+        public Criteria andDeletedLessThanColumn(LitemallSocialDynamic.Column column) {
             addCriterion(new StringBuilder("deleted < ").append(column.getEscapedColumnName()).toString());
             return (Criteria) this;
         }
@@ -1004,7 +1266,7 @@ public class LitemallSocialDynamicExample {
          *
          * @mbg.generated
          */
-        public Criteria andDeletedLessThanOrEqualToColumn(LitemallSocialDynamicWithBLOBs.Column column) {
+        public Criteria andDeletedLessThanOrEqualToColumn(LitemallSocialDynamic.Column column) {
             addCriterion(new StringBuilder("deleted <= ").append(column.getEscapedColumnName()).toString());
             return (Criteria) this;
         }

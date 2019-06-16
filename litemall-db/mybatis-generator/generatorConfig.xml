@@ -7,6 +7,7 @@
 
     <context id="mysqlgenerator" targetRuntime="MyBatis3">
         <property name="autoDelimitKeywords" value="true"/>
+        <property name="javaFileEncoding" value="UTF-8"/>
         <!--可以使用``包括字段名，避免字段名与sql保留字冲突报错-->
         <property name="beginningDelimiter" value="`"/>
         <property name="endingDelimiter" value="`"/>
@@ -56,7 +57,7 @@
         <javaClientGenerator type="XMLMAPPER" targetPackage="org.linlinjava.litemall.db.dao"
                              targetProject="src/main/java"/>
         <!--表名-->
-        <table tableName="litemall_ad">
+        <!-- <table tableName="litemall_ad">
             <generatedKey column="id" sqlStatement="MySql" identity="true"/>
         </table>
         <table tableName="litemall_address">
@@ -179,17 +180,20 @@
         </table>
          <table tableName="litemall_user_follow">
             <generatedKey column="id" sqlStatement="MySql" identity="true"/>
-        </table>
+        </table> -->
         <table tableName="litemall_social_dynamic">
-            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
-            <columnOverride column="picture" javaType="java.lang.Integer[]"
-                            typeHandler="org.linlinjava.litemall.db.mybatis.JsonIntegerArrayTypeHandler"/>
+            <generatedKey column="id" sqlStatement="MySql" identity="true"/>  
+            <columnOverride column="content" javaType="java.lang.String" jdbcType="VARCHAR" />  
+            <columnOverride column="picture" javaType="java.lang.String[]"
+                            typeHandler="org.linlinjava.litemall.db.mybatis.JsonStringArrayTypeHandler"/>
         </table>
         <table tableName="litemall_social_comment">
             <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+            <columnOverride column="content" javaType="java.lang.String" jdbcType="VARCHAR" />  
         </table>
         <table tableName="litemall_social_reply">
             <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+            <columnOverride column="content" javaType="java.lang.String" jdbcType="VARCHAR" />  
         </table>
     </context>
 </generatorConfiguration>
