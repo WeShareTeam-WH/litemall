@@ -120,6 +120,13 @@ Page({
     })
   },
 
+  backHome: function() {
+    console.log("aaa");
+    wx.switchTab({
+      url: '../../index/index',
+    })
+  },
+
   inputbindfocus: function() {
     this.setData({
       focused: true

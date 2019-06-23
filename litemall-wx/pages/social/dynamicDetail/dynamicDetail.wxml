@@ -1,6 +1,6 @@
 <view class='container'>
   <swiper wx:if="{{social.picture}}" class="banner" indicator-dots="true" autoplay="true" interval="3000" duration="1000">
-      <swiper-item key="{{item}}" wx:for="{{social.picture}}" >
+      <swiper-item wx:key="{{item}}" wx:for="{{social.picture}}" >
         <image src="{{item}}" bindtap='previewImg' ></image>
       </swiper-item>
   </swiper>
@@ -70,7 +70,7 @@
   </view>
 
   <view class='bottom'>
-    <view class='backHome'wx:if="{{!focused}}"><image src="../../../static/images/home.png" class='backHome' /></view>
+    <view bindtap='backHome' class='backHome' wx:if="{{!focused}}"><image src="../../../static/images/home.png" class='backHome' /></view>
     <view class='inputView'><input placeholder='{{placeholder}}' bindinput='bindinput' bindfocus="inputbindfocus"   value="{{inputValue}}"      bindblur="inputbindblur" type='text' class='put-comments' /></view>
     <view class='sendView' wx:if="{{focused}}"><button bindtouchstart='sendReply' class='sendButton'>发送</button></view>
   </view>
