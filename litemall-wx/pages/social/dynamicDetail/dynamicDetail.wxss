@@ -185,12 +185,12 @@
 
 .bottom{
   position: fixed;
-  height: 80rpx;
+  height: 100rpx;
   width: 100%;
   bottom: 0rpx;
   border-top: 1rpx solid #f4f4f4;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   background: #FFFFFE;
   align-items:center;
   padding: 0rpx 30rpx;
@@ -203,16 +203,18 @@
 
 
 .put-comments{
-  border: 1rpx solid gray;
+  border: 1rpx solid f4f4f4;
   background: #f4f4f4;
-  height:50rpx;
-  width: 500rpx;
+  height:60rpx;
+  width: 450rpx;
   border-radius: 30rpx;
   padding-left: 30rpx;
 }
 
 .sendButton{
-  height: 50rpx;
+  border: 1rpx solid f4f4f4;
+  background: #f4f4f4;
+  height: 60rpx;
   width: 100rpx;
-  font-size:20rpx;
+  font-size:22rpx;
 }

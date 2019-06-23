@@ -268,13 +268,7 @@
 					"pathName": "pages/help/help",
 					"query": "",
 					"scene": null
-				},
-				{
-				"id": -1,
-				"name": "动态详情",
-				"pathName": "pages/social/dynamicDetail/dynamicDetail",
-				"query": "id=1"
-				},
+				}
 			]
 		}
 	}
