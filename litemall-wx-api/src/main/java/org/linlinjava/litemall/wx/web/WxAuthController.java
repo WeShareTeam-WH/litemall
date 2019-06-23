@@ -88,7 +88,8 @@ public class WxAuthController {
 
         // userInfo
         UserInfo userInfo = new UserInfo();
-        userInfo.setNickName(username);
+        userInfo.setId(user.getId());
+        userInfo.setNickName(user.getNickname());
         userInfo.setAvatarUrl(user.getAvatar());
 
         // token
@@ -159,6 +160,7 @@ public class WxAuthController {
 
         // token
         String token = UserTokenManager.generateToken(user.getId());
+        userInfo.setId(user.getId());
 
         Map<Object, Object> result = new HashMap<Object, Object>();
         result.put("token", token);
@@ -300,6 +302,7 @@ public class WxAuthController {
 
         // userInfo
         UserInfo userInfo = new UserInfo();
+        userInfo.setId(user.getId());
         userInfo.setNickName(username);
         userInfo.setAvatarUrl(user.getAvatar());
 

@@ -6,12 +6,13 @@
 		"postcss": true,
 		"minified": true,
 		"newFeature": true,
+		"autoAudits": false,
 		"uglifyFileName": true
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.4.0",
 	"appid": "wx4b2c41533a6ff8a9",
-	"projectname": "litemall-wx",
+	"projectname": "鲜衣怒马",
 	"simulatorType": "wechat",
 	"simulatorPluginLibVersion": {},
 	"condition": {
@@ -267,7 +268,13 @@
 					"pathName": "pages/help/help",
 					"query": "",
 					"scene": null
-				}
+				},
+				{
+				"id": -1,
+				"name": "动态详情",
+				"pathName": "pages/social/dynamicDetail/dynamicDetail",
+				"query": "id=1"
+				},
 			]
 		}
 	}

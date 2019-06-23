@@ -15,7 +15,7 @@ import java.util.List;
 public class LitemallCategoryService {
     @Resource
     private LitemallCategoryMapper categoryMapper;
-    private LitemallCategory.Column[] CHANNEL = {LitemallCategory.Column.id, LitemallCategory.Column.name, LitemallCategory.Column.iconUrl};
+    private LitemallCategory.Column[] CHANNEL = {LitemallCategory.Column.id, LitemallCategory.Column.name, LitemallCategory.Column.iconUrl, LitemallCategory.Column.link};
 
     public List<LitemallCategory> queryL1WithoutRecommend(int offset, int limit) {
         LitemallCategoryExample example = new LitemallCategoryExample();

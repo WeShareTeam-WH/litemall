@@ -19,3 +19,13 @@
    这里的测试数据来自开源项目[nideshop-mini-program](https://github.com/tumobi/nideshop-mini-program)
    
    开发者开发测试阶段可以使用，但是部署开发阶段应该使用自己的数据。
+
+4. litemall_incrementalStruct.sql
+   上线之后新建了表，或者字段
+   判断后再添加/修改/删除
+   向前兼容
+
+4. litemall_incrementalData.sql
+   上线之后添加默认数据
+   判断后再添加/修改/删除
+   向前兼容

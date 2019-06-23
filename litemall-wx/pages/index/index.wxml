@@ -8,16 +8,24 @@
   </view>
   <swiper class="banner" indicator-dots="true" autoplay="true" interval="3000" duration="1000">
     <swiper-item wx:for="{{banner}}" wx:key="id">
-      <!-- <navigator url="{{item.link}}"> -->
       <image src="{{item.url}}" background-size="cover"></image>
-      <!-- </navigator> -->
     </swiper-item>
   </swiper>
   <view class="m-menu">
-    <navigator class="item" url="/pages/category/category?id={{item.id}}" wx:for="{{channel}}" wx:key="id">
-      <image src="{{item.iconUrl}}" background-size="cover"></image>
-      <text>{{item.name}}</text>
-    </navigator>
+      <view wx:for="{{channel}}" wx:key="id"> 
+        <block wx:if="{{item.link}}">
+          <navigator class="item" url="{{item.link}}" >
+            <image src="{{item.iconUrl}}" background-size="cover"></image>
+            <text>{{item.name}}</text>
+          </navigator>
+        </block>
+        <block wx:else>
+          <navigator class="item" url="/pages/category/category?id={{item.id}}" >
+            <image src="{{item.iconUrl}}" background-size="cover"></image>
+            <text>{{item.name}}</text>
+          </navigator>
+        </block>
+      </view>
   </view>
 
   <view class="a-section a-coupon" wx:if="{{coupon.length > 0}}">

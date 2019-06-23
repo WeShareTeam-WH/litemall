@@ -50,6 +50,31 @@ page {
   font-size: 30rpx;
 }
 
+.user-social {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: #fff;
+}
+
+.user-social .user-tag {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  height: 100px;
+}
+
+.user-social .user-tag .tag-display{
+  border:1px solid #ab956d;
+  margin-left:5rpx;
+  padding:3rpx 5rpx;
+  height: 50rpx;
+}
+
+.user-social .user-social-view{
+  padding-top: 20rpx;
+}
+
 .user_area {
   /* border: 1px solid black; */
   width: 100%;
@@ -64,6 +89,13 @@ page {
   /* border: 1px solid black; */
   height: 86rpx;
   line-height: 86rpx;
+  border-bottom: 1px solid #fafafa;
+}
+
+.little-space{
+  background: #e0e3da;
+  height: 5rpx;
+  line-height: 5rpx;
   border-bottom: 1px solid #fafafa;
 }
 
@@ -103,6 +135,12 @@ page {
   background: #fff;
   text-align: center;
   position: relative;
+}
+
+.user_column_item_number {
+  margin-top: 5rpx;
+  font-size: 24rpx;
+  color: #555;
 }
 
 .user_column_item_badge {

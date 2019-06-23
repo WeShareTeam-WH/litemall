@@ -42,6 +42,7 @@ public class AdminCategoryController {
             categoryVO.setIconUrl(category.getIconUrl());
             categoryVO.setPicUrl(category.getPicUrl());
             categoryVO.setKeywords(category.getKeywords());
+            categoryVO.setLink(category.getLink());
             categoryVO.setName(category.getName());
             categoryVO.setLevel(category.getLevel());
 
@@ -54,6 +55,7 @@ public class AdminCategoryController {
                 subCategoryVo.setIconUrl(subCategory.getIconUrl());
                 subCategoryVo.setPicUrl(subCategory.getPicUrl());
                 subCategoryVo.setKeywords(subCategory.getKeywords());
+                subCategoryVo.setLink(subCategory.getLink());
                 subCategoryVo.setName(subCategory.getName());
                 subCategoryVo.setLevel(subCategory.getLevel());
 
@@ -97,6 +99,7 @@ public class AdminCategoryController {
         if (error != null) {
             return error;
         }
+        System.out.print("Add" + category.toString());
         categoryService.add(category);
         return ResponseUtil.ok(category);
     }
@@ -114,6 +117,7 @@ public class AdminCategoryController {
     @PostMapping("/update")
     public Object update(@RequestBody LitemallCategory category) {
         Object error = validate(category);
+        System.out.print("Update" + category.toString());
         if (error != null) {
             return error;
         }
