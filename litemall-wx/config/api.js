@@ -6,7 +6,7 @@ var WxApiRoot = 'http://localhost:8080/wx/';
 // 云平台部署时使用
 // var WxApiRoot = 'http://118.24.0.153:8080/wx/';
 // 云平台上线时使用
-// var WxApiRoot = 'https://www.menethil.com.cn/wx/';
+//  var WxApiRoot = 'https://xynm.store/wx/';
 
 module.exports = {
   IndexUrl: WxApiRoot + 'home/index', //首页数据接口
@@ -97,4 +97,13 @@ module.exports = {
   UserIndex: WxApiRoot + 'user/index', //个人页面用户相关信息
   IssueList: WxApiRoot + 'issue/list', //帮助信息
 
+  SocialDynamicDetail: WxApiRoot + 'social/dynamic/detail', //动态详情
+  UserDynamics: WxApiRoot + 'social/dynamic/userDynamics', //用户动态
+  CommentsListSelect: WxApiRoot + 'social/comment/list', //加载更多详情的评论
+  CommentsReplyListSelect: WxApiRoot + 'social/reply/list', //加载更多评论的回复
+  CommentAdd: WxApiRoot + 'social/comment/post', // 发评论
+  CommentClap: WxApiRoot + 'social/comment/clap', //点赞评论
+  CommentDelete: WxApiRoot + 'social/comment/delete', //delete评论
+  CommentReplyAdd: WxApiRoot + 'social/reply/post', // 发评论的回复
+  CommentReplyDelete: WxApiRoot + 'social/reply/delete', //delete评论
 };

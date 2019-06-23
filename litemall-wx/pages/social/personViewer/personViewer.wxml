@@ -1,0 +1,49 @@
+<view class="container">
+  <view class="profile-info" bindtap="goLogin">
+    <image class="avatar" src="{{userInfo.avatar}}"></image>
+    <view class="info">
+      <text class="name">{{userInfo.nickname}}</text>
+    </view>
+  </view>
+  <view class="user-social">
+    <view class='little-space'>
+      <view class='user_row_left'></view>
+    </view>
+    <view class="user-social-view user_column">
+       <view class='user_column_item' data-index='1' bindtap='goFollow' data-route='/pages/ucenter/follow/follow'>
+          <text class="user_column_item_number" >0</text>
+          <view class='user_column_item_text'>关注</view>
+      </view>
+       <view class='user_column_item' bindtap='goFans' data-index='1' data-route='/pages/ucenter/fans/fans'>
+          <text class="user_column_item_number" >0</text>
+          <view class='user_column_item_text'>粉丝</view>
+      </view>
+       <view class='user_column_item' bindtap='goLeavesay' data-index='1' data-route='/pages/ucenter/leavesay/leavesay'>
+          <text class="user_column_item_number" >{{dynamicCount}}</text>
+          <view class='user_column_item_text'>动态</view>
+      </view>
+       <view class='user_column_item' bindtap='goFootprint' data-index='1'>
+        <text class="user_column_item_number">0</text>
+        <view class='user_column_item_text'>足迹</view>
+      </view>
+    </view>
+    <view class="user-dynamic">
+    <view wx:for="{{dynamics}}">
+      <view class='spliter-20'></view>
+      <swiper wx:if="{{item.picture}}" class="banner" indicator-dots="true" autoplay="true" interval="3000" duration="1000">
+          <swiper-item key="{{item}}" wx:for="{{item.picture}}" >
+            <image src="{{item}}" bindtap='previewImg' ></image>
+          </swiper-item>
+      </swiper>
+      <view class="spliter-2"></view>
+      <view class="dynamicContent" data-item='{{item}}' bindtap='viewDetail'>
+          <view wx:if="{{social.title}}"><text class='title'>{{item.title}}</text></view>
+          <view><text class='content'>{{item.content}}</text></view>
+          <view><text class='time'>{{item.addTime}}</text></view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class='separate'></view>
+</view>

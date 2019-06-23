@@ -1,0 +1,77 @@
+<view class='container'>
+  <swiper wx:if="{{social.picture}}" class="banner" indicator-dots="true" autoplay="true" interval="3000" duration="1000">
+      <swiper-item key="{{item}}" wx:for="{{social.picture}}" >
+        <image src="{{item}}" bindtap='previewImg' ></image>
+      </swiper-item>
+  </swiper>
+
+  <view class="dynamic">
+    <view class="userInfo">
+      <view class="userInfoLeft" data-item="{{social.ower}}" bindtap='viewUser'>
+          <image class="avatar" src="{{social.ower.avatar}}"></image>
+          <text class='name'>{{social.ower.nickname}}</text>
+      </view>
+      <view class="userInfoRight">
+        <button>关注</button>
+      </view>
+    </view>
+    <view class="spliter-2"></view>
+    <view class="dynamicContent">
+      <view wx:if="{{social.title}}"><text class='title'>{{social.title}}</text></view>
+      <view><text class='content'>{{social.content}}</text></view>
+      <view><text class='time'>{{social.addTime}}</text></view>
+    </view>
+    <div class="spliter-6"></div>
+    <view class='comments'>
+      <view class='titleTag'>
+        <text>热门评论</text>
+      </view>
+      <view wx:key="{{item.id}}" wx:for="{{social.comments}}">
+        <view class='comment-item'>
+          <view class="userInfo">
+            <view class='userInfoLeft' data-item="{{item.user}}" bindtap='viewUser'>
+              <image class="avatar" src="{{item.user.avatar}}"></image>
+              <view class='name-time'>
+                <text class='name'>{{item.user.nickname}}</text>
+                <text class='time'>{{item.addTime}}</text>
+              </view>
+            </view>
+            <view class="userInfoRight">
+              <image data-item="{{item}}" class="imgIcon" bindtap='clapComment' src='../../../static/images/icon/clap.png'></image>
+              <text>{{item.clap}}</text>
+            </view>
+          </view>
+          <view class="comment">
+            <view class='content-time flex-row-between'>
+              <view class='flex-column'>
+                <text class='content' data-item="{{item}}" bindtap='replyComment'>{{item.content}}</text>
+                <text class='time'>{{item.addTime}}</text>
+              </view>
+              <text data-item="{{item}}" wx:if="{{item.user.id === userId}}" bindtap='deleteComment'  class='delete'>删除</text> 
+            </view>
+            <view class='replys' wx:key="{{item.id}}" wx:for="{{item.replys}}">
+              <view class='reply flex-column'>
+                <view data-item="{{item}}" bindtap='replyReply'>
+                 <text class="user-link" data-item="{{item.replyFromUser}}" bindtap='viewUser'>{{item.replyFromUser.nickname}}</text>
+                 <text class='user-reply'>回复</text>
+                 <text class="user-link" data-item="{{item.replyToUser}}" bindtap='viewUser'>{{item.replyToUser.nickname}}</text>:
+                 <text>{{item.content}}</text>
+                </view>
+                <view>
+                  <text class='time'>{{item.addTime}}</text>
+                  <text data-item="{{item}}" wx:if="{{item.replyFromUser.id === userId}}" bindtap='deleteReply'  class='time marginLeft'>删除</text> 
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class='bottom'>
+    <view class='backHome'wx:if="{{!focused}}"><image src="../../../static/images/home.png" class='backHome' /></view>
+    <view class='inputView'><input placeholder='{{placeholder}}' bindinput='bindinput' bindfocus="inputbindfocus"   value="{{inputValue}}"      bindblur="inputbindblur" type='text' class='put-comments' /></view>
+    <view class='sendView' wx:if="{{focused}}"><button bindtouchstart='sendReply' class='sendButton'>发送</button></view>
+  </view>
+</view>

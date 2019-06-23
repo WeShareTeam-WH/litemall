@@ -27,6 +27,8 @@
 
       <el-table-column align="center" label="关键字" prop="keywords"/>
 
+      <el-table-column align="center" label="链接" prop="link"/>
+
       <el-table-column align="center" min-width="100" label="简介" prop="desc"/>
 
       <el-table-column align="center" label="级别" prop="level">
@@ -51,6 +53,9 @@
         </el-form-item>
         <el-form-item label="关键字" prop="keywords">
           <el-input v-model="dataForm.keywords"/>
+        </el-form-item>
+        <el-form-item label="链接" prop="link">
+          <el-input v-model="dataForm.link"/>
         </el-form-item>
         <el-form-item label="级别" prop="level">
           <el-select v-model="dataForm.level" @change="onLevelChange">
@@ -147,6 +152,7 @@ export default {
         id: undefined,
         name: '',
         keywords: '',
+        link: '',
         level: 'L2',
         pid: 0,
         desc: '',
@@ -198,6 +204,7 @@ export default {
         id: undefined,
         name: '',
         keywords: '',
+        link: '',
         level: 'L2',
         pid: 0,
         desc: '',

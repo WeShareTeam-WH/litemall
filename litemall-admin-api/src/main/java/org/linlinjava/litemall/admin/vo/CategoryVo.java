@@ -10,6 +10,7 @@ public class CategoryVo {
     private String iconUrl;
     private String picUrl;
     private String level;
+    private String link;
     private List<CategoryVo> children;
 
     public List<CategoryVo> getChildren() {
@@ -42,6 +43,14 @@ public class CategoryVo {
 
     public void setKeywords(String keywords) {
         this.keywords = keywords;
+    }
+
+    public String getLink() {
+        return link;
+    }
+
+    public void setLink(String link) {
+        this.link = link;
     }
 
     public String getDesc() {
