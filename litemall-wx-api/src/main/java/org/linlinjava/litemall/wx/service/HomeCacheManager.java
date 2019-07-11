@@ -3,17 +3,20 @@ package org.linlinjava.litemall.wx.service;
 import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * 简单缓存的数据
  */
 public class HomeCacheManager {
-    public static final boolean ENABLE = false;
+    public static final boolean ENABLE = true;
     public static final String INDEX = "index";
     public static final String CATALOG = "catalog";
     public static final String GOODS = "goods";
+    public static final String SOCIAL = "social";
+    public static final String TOPIC = "topic";
 
-    private static Map<String, Map<String, Object>> cacheDataList = new HashMap<>();
+    private static Map<String, Map<String, Object>> cacheDataList = new ConcurrentHashMap<String, Map<String, Object>>();
 
     /**
      * 缓存首页数据
@@ -21,6 +24,10 @@ public class HomeCacheManager {
      * @param data
      */
     public static void loadData(String cacheKey, Map<String, Object> data) {
+        loadData(cacheKey, data, 10);
+    }
+
+    public static void loadData(String cacheKey, Map<String, Object> data, int expireMinuteTime){
         Map<String, Object> cacheData = cacheDataList.get(cacheKey);
         //有记录，则先丢弃
         if (cacheData != null) {
@@ -32,7 +39,7 @@ public class HomeCacheManager {
         cacheData.putAll(data);
         cacheData.put("isCache", "true");
         //设置缓存有效期为10分钟
-        cacheData.put("expireTime", LocalDateTime.now().plusMinutes(10));
+        cacheData.put("expireTime", LocalDateTime.now().plusMinutes(expireMinuteTime));
         cacheDataList.put(cacheKey, cacheData);
     }
 

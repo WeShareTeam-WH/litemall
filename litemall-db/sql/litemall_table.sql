@@ -858,3 +858,17 @@ CREATE TABLE `litemall_social_reply` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COMMENT='社交动态的评论的回复表';
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+-- Joseph add 2019/7/10 for litemall_dynamic_topic（标签动态映射表）
+DROP TABLE IF EXISTS `litemall_social_topic`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `litemall_social_topic` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `dynamic_id` int(11) NOT NULL COMMENT '所属动态id',
+  `topic_id` int(11) NOT NULL COMMENT '所属话题id',
+  `add_time` datetime DEFAULT NULL COMMENT '创建时间',
+  `update_time` datetime DEFAULT NULL COMMENT '更新时间',
+  `deleted` tinyint(1) DEFAULT '0' COMMENT '逻辑删除',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COMMENT='标签动态映射表';

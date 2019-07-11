@@ -182,18 +182,21 @@
             <generatedKey column="id" sqlStatement="MySql" identity="true"/>
         </table>
         <table tableName="litemall_social_dynamic">
-            <generatedKey column="id" sqlStatement="MySql" identity="true"/>  
-            <columnOverride column="content" javaType="java.lang.String" jdbcType="VARCHAR" />  
+            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+            <columnOverride column="content" javaType="java.lang.String" jdbcType="VARCHAR" />
             <columnOverride column="picture" javaType="java.lang.String[]"
                             typeHandler="org.linlinjava.litemall.db.mybatis.JsonStringArrayTypeHandler"/>
         </table>
         <table tableName="litemall_social_comment">
             <generatedKey column="id" sqlStatement="MySql" identity="true"/>
-            <columnOverride column="content" javaType="java.lang.String" jdbcType="VARCHAR" />  
+            <columnOverride column="content" javaType="java.lang.String" jdbcType="VARCHAR" />
         </table>
         <table tableName="litemall_social_reply">
             <generatedKey column="id" sqlStatement="MySql" identity="true"/>
-            <columnOverride column="content" javaType="java.lang.String" jdbcType="VARCHAR" />  
+            <columnOverride column="content" javaType="java.lang.String" jdbcType="VARCHAR" />
+        </table>
+        <table tableName="litemall_social_topic">
+            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
         </table>
     </context>
 </generatorConfiguration>

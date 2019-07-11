@@ -1,0 +1,99 @@
+@import "weui.wxss";
+
+.container {
+  box-sizing: border-box;
+  background-color: #f4f4f4;
+  font-family: PingFangSC-Light, helvetica, 'Heiti SC';
+}
+
+view, image, text, navigator {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+view, text {
+  font-family: PingFangSC-Light, helvetica, 'Heiti SC';
+  font-size: 29rpx;
+  color: #333;
+}
+
+.flex-row-between{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.flex-row{
+  display: flex;
+  flex-direction: row;
+  flex-wrap:wrap;
+}
+
+.flex-column{
+  display: flex;
+  flex-direction: column;
+}
+
+.margin-10{
+  margin:10rpx;
+}
+
+.spliter-2{
+  height: 2rpx;
+  background: #f4f4f4;
+}
+
+.spliter-6{
+  height: 6rpx;
+  background: #f4f4f4;
+}
+
+.spliter-10{
+  height: 6rpx;
+  background: #f4f4f4;
+}
+
+.spliter-25{
+  height: 25rpx;
+  background: #f4f4f4;
+}
+
+.time{
+  font-size: 20rpx;
+  color: #d3d3d3
+}
+
+.delete{
+  font-size: 25rpx;
+  color: #a2a2a2;
+}
+
+.img-icon-30{
+  height: 30rpx;
+  width: 30rpx;
+}
+
+.img-icon-25{
+  height: 25rpx;
+  width: 25rpx;
+}
+
+.img-icon-20{
+  height: 20rpx;
+  width: 20rpx;
+}
+
+.topic{
+  background:#11cccc;
+  color:#fff;
+  border-radius:30rpx;
+  padding:5rpx 30rpx;
+}
+
+.title{
+  color:#00F;
+  border-radius:30rpx;
+  padding:5rpx 0rpx;
+}

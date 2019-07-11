@@ -39,7 +39,9 @@
     "pages/coupon/coupon",
     "pages/help/help",
     "pages/social/dynamicDetail/dynamicDetail",
-    "pages/social/personViewer/personViewer"
+    "pages/social/personViewer/personViewer",
+    "pages/social/index/index",
+    "pages/social/record/record"
   ],
   "window": {
     "navigationBarBackgroundColor": "#FFFFFF",

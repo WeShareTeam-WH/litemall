@@ -37,7 +37,12 @@
               </view>
             </view>
             <view class="userInfoRight">
-              <image data-item="{{item}}" class="imgIcon" bindtap='clapComment' src='../../../static/images/icon/clap.png'></image>
+              <block wx:if="{{item.loginUserClap}}">
+                <image data-item="{{item}}" class="imgIcon" bindtap='clapComment' src='../../../static/images/icon/loginUserClap.png'></image>
+              </block>
+              <block wx:else>
+                <image data-item="{{item}}" class="imgIcon" bindtap='clapComment' src='../../../static/images/icon/clap.png'></image>
+              </block>
               <text>{{item.clap}}</text>
             </view>
           </view>

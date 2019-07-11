@@ -245,9 +245,17 @@ Page({
     let clapItem = {
       id: item.id
     }
-    util.request(api.CommentClap, clapItem, "POST")
+    let apiURL = item.loginUserClap ? api.CommentCancelClap : api.CommentClap;
+    util.request(apiURL, clapItem, "POST")
       .then(function (res) {
         if (res.errno == 0) {
+          if (item.loginUserClap) {
+            item.loginUserClap = false;
+            item.clap = item.clap-1;
+          } else {
+            item.loginUserClap = true;
+            item.clap = item.clap + 1;
+          }
           that.refactorData("comment", "clap", item);
         } 
       });
@@ -322,7 +330,8 @@ Page({
         } else if (operator === "clap"){
           if (socialData.comments && socialData.comments.length > 0) {
             let comment = socialData.comments.find((item) => { return item.id === data.id })
-            comment.clap += 1;
+            comment.clap = data.clap;
+            comment.loginUserClap = data.loginUserClap;
           }
         } else {
         }

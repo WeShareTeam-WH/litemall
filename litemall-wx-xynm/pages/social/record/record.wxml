@@ -1,0 +1,61 @@
+<view class="page">
+    <view class='record-top'>
+      <!--内容-->
+      <view class="flex-column">
+          <textarea placeholder="来说说你的汉服日常吧~" bindinput="bindInputValue" style="height: 300rpx" />
+      </view>
+
+      <!--已选标签-->
+      <view class="flex-column">
+        <view>
+        已选标签：
+        </view>
+        <view class="flex-row">
+          <view wx:for="{{submitTopics}}" class='topic margin-10'>{{item.title}}<image class='img-icon-25' src="/static/images/icon/xx.png" bindtap="deleteTopic" data-item='{{item}}'></image></view>
+        </view>
+      </view>
+
+      <!--选择标签-->
+      <view class='help'>
+        <view class='help_item'>
+          <view class='title' data-index='1' catchtap='panel'>
+            <view class='title_1'>热门话题</view>
+            <view class='title_2'><image class='img-icon-30' src="/static/images/icon/{{showIndex ? 'down':'right'}}.png"></image></view>
+          </view>
+          <view class='detail' wx:if="{{showIndex}}">  
+            <view class="flex-row">
+              <view wx:for="{{topics}}" class='topic margin-10' bindtap='addTopic' data-item="{{item}}">{{item.title}}</view>
+            </view>
+          </view>
+        </view>
+      </view>
+
+      <!--上传图片-->
+      <view class="weui-cell">
+        <view class="weui-cell__bd">
+          <view class="weui-uploader">
+            <view class="weui-uploader__bd">
+              <view class="weui-uploader__files" id="uploaderFiles">
+                <block wx:for="{{files}}" wx:key="*this">
+                  <view class="weui-uploader__file img-item" id="{{item}}">
+                    <image class="weui-uploader__img" data-index="{{index}}" src="{{item}}" mode="aspectFill" bindtap="previewImage" bindlongpress="deleteImage"/>
+                      <!-- <view class="delete-btn" data-index="{{index}}" catchtap="deleteImage"></view> -->
+                  </view>
+                </block>
+              </view>
+              <view class="weui-uploader__input-box">
+                  <view class="weui-uploader__input chooseimg" bindtap="chooseImage"></view>
+              </view> 
+            </view>
+          </view>
+        </view>
+      </view>
+
+      <view class='tips'>长按对应的图片即可删除</view>
+
+    </view>
+    <!--发布动态-->
+    <view class="weui-btn-area upload-button-view">
+      <button class="weui-btn upload-button" type="primary" bindtap="upload_life_message">发布</button>
+    </view>
+</view>

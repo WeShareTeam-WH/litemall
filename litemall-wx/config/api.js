@@ -103,6 +103,7 @@ module.exports = {
   CommentsReplyListSelect: WxApiRoot + 'social/reply/list', //加载更多评论的回复
   CommentAdd: WxApiRoot + 'social/comment/post', // 发评论
   CommentClap: WxApiRoot + 'social/comment/clap', //点赞评论
+  CommentCancelClap: WxApiRoot + 'social/comment/cancelClap', //取消评论
   CommentDelete: WxApiRoot + 'social/comment/delete', //delete评论
   CommentReplyAdd: WxApiRoot + 'social/reply/post', // 发评论的回复
   CommentReplyDelete: WxApiRoot + 'social/reply/delete', //delete评论

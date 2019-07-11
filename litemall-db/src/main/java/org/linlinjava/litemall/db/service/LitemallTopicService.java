@@ -62,6 +62,12 @@ public class LitemallTopicService {
         return queryList(offset, limit, "add_time", "desc");
     }
 
+    public List<LitemallTopic> queryByTopicTitle(String title) {
+        LitemallTopicExample example = new LitemallTopicExample();
+        example.or().andTitleEqualTo(title).andDeletedEqualTo(false);
+        return topicMapper.selectByExample(example);
+    }
+
     public List<LitemallTopic> querySelective(String title, String subtitle, Integer page, Integer limit, String sort, String order) {
         LitemallTopicExample example = new LitemallTopicExample();
         LitemallTopicExample.Criteria criteria = example.createCriteria();
