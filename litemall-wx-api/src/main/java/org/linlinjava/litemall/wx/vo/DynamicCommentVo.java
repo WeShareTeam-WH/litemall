@@ -14,6 +14,8 @@ public class DynamicCommentVo {
     private String content;
     
     private Integer clap;
+
+    private Boolean loginUserClap;
     
     private LocalDateTime addTime;
     
@@ -105,6 +107,14 @@ public class DynamicCommentVo {
         this.replysCount = replysCount;
     }
 
+    public Boolean getLoginUserClap() {
+        return loginUserClap;
+    }
+
+    public void setLoginUserClap(Boolean loginUserClap) {
+        this.loginUserClap = loginUserClap;
+    }
+
     @Override
     public String toString() {
         return "DynamicCommentVo{" +
@@ -113,6 +123,7 @@ public class DynamicCommentVo {
                 ", user=" + user +
                 ", content='" + content + '\'' +
                 ", clap=" + clap +
+                ", loginUserClap=" + loginUserClap +
                 ", addTime=" + addTime +
                 ", updateTime=" + updateTime +
                 ", deleted=" + deleted +

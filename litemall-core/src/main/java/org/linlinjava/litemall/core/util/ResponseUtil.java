@@ -55,6 +55,15 @@ public class ResponseUtil {
         return obj;
     }
 
+    public static Object ok(Object data, long apiTookMillis) {
+        Map<String, Object> obj = new HashMap<String, Object>();
+        obj.put("errno", 0);
+        obj.put("errmsg", "成功");
+        obj.put("data", data);
+        obj.put("took", apiTookMillis);
+        return obj;
+    }
+
     public static Object okList(List list) {
         Map<String, Object> data = new HashMap<String, Object>();
         data.put("list", list);

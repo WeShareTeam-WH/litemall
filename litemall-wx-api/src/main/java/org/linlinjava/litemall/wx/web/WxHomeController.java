@@ -1,20 +1,27 @@
 package org.linlinjava.litemall.wx.web;
 
+import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.linlinjava.litemall.core.redis.RedisCommonService;
+import org.linlinjava.litemall.core.redis.RedisConnection;
+import org.linlinjava.litemall.core.redis.RedisDBEnum;
 import org.linlinjava.litemall.core.system.SystemConfig;
 import org.linlinjava.litemall.core.util.ResponseUtil;
 import org.linlinjava.litemall.db.domain.LitemallCategory;
 import org.linlinjava.litemall.db.domain.LitemallGoods;
+import org.linlinjava.litemall.db.domain.LitemallSocialDynamic;
+import org.linlinjava.litemall.db.domain.UserVo;
 import org.linlinjava.litemall.db.service.*;
 import org.linlinjava.litemall.wx.annotation.LoginUser;
 import org.linlinjava.litemall.wx.service.HomeCacheManager;
+import org.linlinjava.litemall.wx.service.SocialTopicService;
+import org.linlinjava.litemall.wx.service.UserInfoService;
 import org.linlinjava.litemall.wx.service.WxGrouponRuleService;
+import org.linlinjava.litemall.wx.vo.DynamicDetailVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
@@ -52,6 +59,21 @@ public class WxHomeController {
 
     @Autowired
     private LitemallCouponService couponService;
+
+    @Autowired
+    private LitemallSocialDynamicService litemallSocialDynamicService;
+
+    @Autowired
+    private LitemallSocialCommentsService socialCommentsService;
+
+    @Autowired
+    private SocialTopicService socialTopicService;
+
+    @Autowired
+    private UserInfoService userService;
+
+    @Autowired
+    private RedisCommonService redisService;
 
     private final static ArrayBlockingQueue<Runnable> WORK_QUEUE = new ArrayBlockingQueue<>(9);
 
@@ -148,6 +170,113 @@ public class WxHomeController {
             executorService.shutdown();
         }
         return ResponseUtil.ok(entity);
+    }
+
+    @GetMapping("/list")
+    public Object index(@LoginUser Integer userId,
+                 @RequestParam(defaultValue = "1") Integer page,
+                 @RequestParam(defaultValue = "10") Integer size,
+                 @RequestParam(defaultValue = "") String keyword) {
+        long start,end;
+        start = System.currentTimeMillis();
+        Map<String, Object> entity = new ConcurrentHashMap<String, Object>();
+        Boolean isRedisAvailable = RedisConnection.getInstance().isStatus();
+        System.out.println("Redis Status: " + isRedisAvailable);
+
+        if (HomeCacheManager.hasData(HomeCacheManager.TOPIC)){
+            Object data = HomeCacheManager.getCacheData(HomeCacheManager.TOPIC);
+            entity.put("banner", ((Map<String, Object>) data).get("banner"));
+            entity.put("channel", ((Map<String, Object>) data).get("channel"));
+        } else {
+            ExecutorService executorService = Executors.newFixedThreadPool(2);
+            try {
+                Map<String, Object> topicEntity = new HashMap<>();
+                topicEntity.put("banner", adService.queryIndex());
+                topicEntity.put("channel", categoryService.queryChannel());
+                HomeCacheManager.loadData(HomeCacheManager.TOPIC, topicEntity, 60*24);
+            }
+            catch (Exception e) {
+                e.printStackTrace();
+            }finally {
+            }
+        }
+
+         if (!StringUtils.isBlank(keyword)){
+             Map<String, Object> socialEntity = (Map<String, Object>)fetchByCondition(isRedisAvailable, userId, page, size, keyword);
+             entity.put("dynamic", socialEntity.get("dynamic"));
+             entity.put("dynamicCount", socialEntity.get("dynamicCount"));
+         }
+
+        if (HomeCacheManager.hasData(HomeCacheManager.SOCIAL)) {
+            Object data = HomeCacheManager.getCacheData(HomeCacheManager.SOCIAL);
+            List<DynamicDetailVo> dynamics = (List)((Map<String, Object>) data).get("dynamic");
+            entity.put("dynamicCount", ((Map<String, Object>) data).get("dynamicCount"));
+            int maxCount = dynamics.size();
+            if (maxCount < 10) {
+                entity.put("dynamic", ((Map<String, Object>) data).get("dynamic"));
+            }
+            else if (page * size <= maxCount) {
+                List<DynamicDetailVo> socialDynamics = new ArrayList<DynamicDetailVo>();
+                for (int i = (page - 1)*size; i < page*size; i++) {
+                    socialDynamics.add(dynamics.get(i));
+                }
+                CountClapAndFillLoginUserClap(socialDynamics, isRedisAvailable, userId);
+                entity.put("dynamic", socialDynamics);
+            } else {
+                Map<String, Object> socialEntity = (Map<String, Object>)fetchByCondition(isRedisAvailable, userId, page, size, keyword);
+                entity.put("dynamic", socialEntity.get("dynamic"));
+                entity.put("dynamicCount", socialEntity.get("dynamicCount"));
+            }
+        }
+        else {
+            Map<String, Object> socialEntity = (Map<String, Object>)fetchByCondition(isRedisAvailable, userId, 1, 100, keyword);
+            HomeCacheManager.loadData(HomeCacheManager.SOCIAL, socialEntity, 30);
+            entity.put("dynamic", socialEntity.get("dynamic"));
+            entity.put("dynamicCount", socialEntity.get("dynamicCount"));
+        }
+        end = System.currentTimeMillis();
+        return ResponseUtil.ok(entity, (end - start));
+    }
+
+    private Object fetchByCondition(boolean isRedisAvailable, Integer userId, Integer page, Integer size, String keyword){
+        Map<String, Object> entity = new ConcurrentHashMap<String, Object>();
+        try {
+            List<DynamicDetailVo> detailsVo = new ArrayList<DynamicDetailVo>();
+            Integer dynamicCount = litemallSocialDynamicService.count(keyword);
+            List<LitemallSocialDynamic> details = litemallSocialDynamicService.queryBySelective(page, size, "update_time", "desc", keyword);
+            for (LitemallSocialDynamic socialDynamic : details){
+                DynamicDetailVo detail = new DynamicDetailVo();
+                detail.setId(socialDynamic.getId());
+                detail.setOwer(userService.findUserVoById(socialDynamic.getOwerId()));
+                detail.setClap(isRedisAvailable ? redisService.bitCount(RedisDBEnum.WXSOCIALDYNAMIC+socialDynamic.getId()).intValue(): socialDynamic.getClap());
+                detail.setLoginUserClap(userId == null || !isRedisAvailable ? false : redisService.getBit(RedisDBEnum.WXSOCIALDYNAMIC+socialDynamic.getId(), userId));
+                detail.setTitle(socialDynamic.getTitle());
+                detail.setContent(socialDynamic.getContent());
+                detail.setPicture(socialDynamic.getPicture());
+                detail.setAddTime(socialDynamic.getAddTime());
+                detail.setUpdateTime(socialDynamic.getUpdateTime());
+                detail.setTopics(socialTopicService.selectByDynamicId(socialDynamic.getId()));
+                detail.setCommentsCount(socialCommentsService.countByDynamicId(socialDynamic.getId()));
+                detailsVo.add(detail);
+            }
+
+            entity.put("dynamic", detailsVo);
+            entity.put("dynamicCount", dynamicCount);
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }finally {
+        }
+        return entity;
+    }
+
+    private void CountClapAndFillLoginUserClap(List<DynamicDetailVo> details, boolean isRedisAvailable, Integer userId){
+        if (details != null && details.size() > 0) {
+            for (DynamicDetailVo detail : details){
+                detail.setClap(isRedisAvailable ? redisService.bitCount(RedisDBEnum.WXSOCIALDYNAMIC+detail.getId()).intValue(): detail.getClap());
+                detail.setLoginUserClap(userId == null || !isRedisAvailable ? false : redisService.getBit(RedisDBEnum.WXSOCIALDYNAMIC+detail.getId(), userId));
+            }
+        }
     }
 
     private List<Map> getCategoryList() {

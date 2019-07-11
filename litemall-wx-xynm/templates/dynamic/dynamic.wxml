@@ -1,0 +1,64 @@
+<template name="topicItem">
+    <view class="dynamic-topic">
+      <view class="dynamic">
+        <view class="userInfo">
+          <view class="userInfoLeft" data-item="{{item.ower}}" bindtap='viewUser'>
+              <image class="avatar" src="{{item.ower.avatar}}"></image>
+              <text class='name'>{{item.ower.nickname}}</text>
+          </view>
+          <view class="userInfoRight">
+            <button>关注</button>
+          </view>
+        </view>
+        <view class="spliter-2"></view>
+        <view class="dynamicContent">
+          <view wx:key="{{item.topicId}}" wx:for="{{item.topics}}">
+            <navigator url="/pages/social/topicDetail/topicDetail?id={{item.topicId}}"><text class='topic'>#{{item.title}}#</text></navigator>
+          </view>
+          <navigator url="/pages/social/dynamicDetail/dynamicDetail?id={{item.id}}">
+            <view wx:if="{{item.title}}" class='title'>{{item.title}}</view>
+            <view><text class='content'>{{item.content}}</text></view>
+          </navigator>
+          <view class='flex-row-between'><text class='time'>{{item.addTime}}</text><text data-item="{{item}}" wx:if="{{item.ower.id === userId}}" bindtap='deleteDynamic'  class='delete'>删除</text> </view>
+        </view>
+      </view>
+
+      <view wx:if="{{item.picture && item.picture.length > 0}}" class='social-image'>
+        <view class='image-item images-{{item.picture.length}}'  wx:for="{{item.picture}}" wx:for-item='itemPic' wx:key="{{itemPic}}">
+          <image src="{{itemPic}}" data-src="{{itemPic}}" data-item='{{item.picture}}' bindtap='previewImg' mode="widthFix" ></image>
+        </view>
+      </view>
+
+      <view class="topic__meta meta flex-between">
+        <view class="flex-wrap" >
+          <view class="flex-item" data-item="{{item}}" bindtap='clapDynamic' >
+            <block wx:if="{{item.loginUserClap}}">
+              <image class="icon" src="/static/images/icon/loginUserClap.png" />
+            </block>
+            <block wx:else>
+              <image class="icon" src="/static/images/icon/clap.png" />
+            </block>         
+            <block wx:if="{{item.clap > 0}}">
+              <text class="topic__reply_number">{{item.clap}}</text>
+            </block>
+            <block wx:else>
+              <text class="topic__reply">点赞</text>
+            </block>
+          </view>
+          <view class="flex-item" data-item="{{item}}" bindtap='viewDynamic' >
+            <image class="icon" src="/static/images/icon/comment.png" />
+            <block wx:if="{{item.commentsCount > 0}}">
+              <text class="topic__reply_number">{{item.commentsCount}}</text>
+            </block>
+            <block wx:else>
+              <text class="topic__reply">评论</text>
+            </block>
+          </view>
+          <view data-item="{{item}}" bindtap='shareDynamic' class="flex-item">
+            <image class="icon" src="/static/images/icon/share.png" />
+            <text class="topic__reply">分享</text>
+          </view>
+        </view>
+      </view>
+    </view>
+</template>

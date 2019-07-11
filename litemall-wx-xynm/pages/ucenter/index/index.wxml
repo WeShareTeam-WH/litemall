@@ -1,0 +1,58 @@
+<view class="container">
+  <view class="profile-info" bindtap="goLogin">
+    <image class="avatar" src="{{userInfo.avatarUrl}}"></image>
+    <view class="info">
+      <text class="name">{{userInfo.nickName}}</text>
+    </view>
+  </view>
+
+  <view class='separate'></view>
+
+  <view class="user-social">
+    <view class='little-space'>
+      <view class='user_row_left'></view>
+    </view>
+    <view class="user-social-view user_column">
+       <!-- <view class='user_column_item' data-index='1' bindtap='goFollow' data-route='/pages/ucenter/follow/follow'>
+          <text class="user_column_item_number" >2</text>
+          <view class='user_column_item_text'>关注</view>
+      </view>
+       <view class='user_column_item' bindtap='goFans' data-index='1' data-route='/pages/ucenter/fans/fans'>
+          <text class="user_column_item_number" >5</text>
+          <view class='user_column_item_text'>粉丝</view>
+      </view> -->
+       <view class='user_column_item' bindtap='goNotification' data-index='1' data-route='/pages/ucenter/notifications/notifications'>
+          <text class="user_column_item_number" >5</text>
+          <view class='user_column_item_text'>通知</view>
+      </view>
+       <view class='user_column_item' bindtap='goLeavesay' data-index='1' data-route='/pages/ucenter/leavesay/leavesay'>
+          <text class="user_column_item_number" >10</text>
+          <view class='user_column_item_text'>留言</view>
+      </view>
+       <view class='user_column_item' bindtap='goFootprint' data-index='1'>
+        <text class="user_column_item_number">12</text>
+        <view class='user_column_item_text'>足迹</view>
+      </view>
+    </view>
+    <view class="user-bi"> </view>
+    <view class="user-msg"> </view>
+    <view class="user-dynamic"> </view>
+  </view>
+
+  <view class='user_column'>
+    <view class='user_column_item' bindtap='goHelp'>
+      <image class='user_column_item_image' src='/static/images/ic_menu_topic_nor.png'></image>
+      <view class='user_column_item_text'>帮助中心</view>
+    </view>
+    <view class='user_column_item' bindtap='goFeedback'>
+      <image class='user_column_item_image' src='/static/images/feedback.png'></image>
+      <view class='user_column_item_text'>意见反馈</view>
+    </view>
+    <view class='user_column_item' bindtap='aboutUs'>
+      <image class='user_column_item_image' src='/static/images/about_us.png'></image>
+      <view class='user_column_item_text'>关于我们</view>
+    </view>
+  </view>
+
+  <view class="logout" wx:if="{{hasLogin}}" bindtap="exitLogin">退出登录</view>
+</view>

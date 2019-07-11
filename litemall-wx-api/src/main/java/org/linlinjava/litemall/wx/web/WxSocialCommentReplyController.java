@@ -47,7 +47,8 @@ public class WxSocialCommentReplyController {
      * @return
      */
     @GetMapping("list")
-    public Object list(@NotNull Integer id,
+    public Object list(@LoginUser Integer userId,
+                       @NotNull Integer id,
                        @NotNull Integer commentId,
                        @RequestParam(defaultValue = "1") Integer page,
                        @RequestParam(defaultValue = "10") Integer size) {
@@ -101,7 +102,7 @@ public class WxSocialCommentReplyController {
     }
 
     @PostMapping("delete")
-    public Object delete(@RequestBody LitemallSocialReply reply) {
+    public Object delete(@LoginUser Integer userId, @RequestBody LitemallSocialReply reply) {
         socialReplyService.logicDelete(reply.getId());
         return ResponseUtil.ok(reply.getId());
     }

@@ -12,11 +12,13 @@ public class DynamicDetailVo {
     private String title;
     private String content;
     private Integer clap;
+    private Boolean loginUserClap;
     private LocalDateTime addTime;
     private LocalDateTime updateTime;
     private Boolean deleted;
     private String[] picture;
     private List<DynamicCommentVo> comments;
+    private List<DynamicTopicVo> topics;
     private Integer commentsCount;
 
     public Integer getId() {
@@ -59,6 +61,14 @@ public class DynamicDetailVo {
         this.clap = clap;
     }
 
+    public Boolean getLoginUserClap() {
+        return loginUserClap;
+    }
+
+    public void setLoginUserClap(Boolean loginUserClap) {
+        this.loginUserClap = loginUserClap;
+    }
+
     public LocalDateTime getAddTime() {
         return addTime;
     }
@@ -99,6 +109,14 @@ public class DynamicDetailVo {
         this.comments = comments;
     }
 
+    public List<DynamicTopicVo> getTopics() {
+        return topics;
+    }
+
+    public void setTopics(List<DynamicTopicVo> topics) {
+        this.topics = topics;
+    }
+
     public Integer getCommentsCount() {
         return commentsCount;
     }
@@ -115,11 +133,13 @@ public class DynamicDetailVo {
                 ", title='" + title + '\'' +
                 ", content='" + content + '\'' +
                 ", clap=" + clap +
+                ", loginUserClap=" + loginUserClap +
                 ", addTime=" + addTime +
                 ", updateTime=" + updateTime +
                 ", deleted=" + deleted +
                 ", picture=" + Arrays.toString(picture) +
                 ", comments=" + comments +
+                ", topics=" + topics +
                 ", commentsCount=" + commentsCount +
                 '}';
     }
