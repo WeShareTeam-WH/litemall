@@ -181,14 +181,12 @@ public class WxHomeController {
         start = System.currentTimeMillis();
         Map<String, Object> entity = new ConcurrentHashMap<String, Object>();
         Boolean isRedisAvailable = RedisConnection.getInstance().isStatus();
-        System.out.println("Redis Status: " + isRedisAvailable);
 
         if (HomeCacheManager.hasData(HomeCacheManager.TOPIC)){
             Object data = HomeCacheManager.getCacheData(HomeCacheManager.TOPIC);
             entity.put("banner", ((Map<String, Object>) data).get("banner"));
             entity.put("channel", ((Map<String, Object>) data).get("channel"));
         } else {
-            ExecutorService executorService = Executors.newFixedThreadPool(2);
             try {
                 Map<String, Object> topicEntity = new HashMap<>();
                 topicEntity.put("banner", adService.queryIndex());

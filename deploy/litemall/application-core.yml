@@ -1,11 +1,11 @@
 litemall:
   # 开发者应该设置成自己的wx相关信息
   wx:
-    app-id: wxa5b486c6b918ecfb
-    app-secret: e04004829d4c383b4db7769d88dfbca1
+    app-id: wx4b2c41533a6ff8a9
+    app-secret: f62e507413beb53797f6bbdb9470c64f
     mch-id: 111111
     mch-key: xxxxxx
-    notify-url: http://118.24.0.153:8080/wx/order/pay-notify
+    notify-url: http://www.example.com/wx/order/pay-notify
     # 商户证书文件路径
     # 请参考“商户证书”一节 https://pay.weixin.qq.com/wiki/doc/api/wxa/wxa_api.php?chapter=4_3
     key-path: xxxxx
@@ -86,22 +86,57 @@ litemall:
 
   # 对象存储配置
   storage:
-    # 当前工作的对象存储模式，分别是local、aliyun、tencent
+    # 当前工作的对象存储模式，分别是local、aliyun、tencent、qiniu
     active: local
     # 本地对象存储配置信息
     local:
       storagePath: storage
-      address: http://118.24.0.153:8080/wx/storage/fetch/
+      # 这个地方应该是wx模块的WxStorageController的fetch方法对应的地址
+      address: http://localhost:8080/wx/storage/fetch/
     # 阿里云对象存储配置信息
     aliyun:
       endpoint: oss-cn-shenzhen.aliyuncs.com
       accessKeyId: 111111
       accessKeySecret: xxxxxx
-      bucketName: xxxxxx
+      bucketName: litemall
     # 腾讯对象存储配置信息
     # 请参考 https://cloud.tencent.com/document/product/436/6249
     tencent:
       secretId: 111111
       secretKey: xxxxxx
       region: xxxxxx
-      bucketName: xxxxxx
+      bucketName: litemall
+    # 七牛云对象存储配置信息
+    qiniu:
+      endpoint: http://pd5cb6ulu.bkt.clouddn.com
+      accessKey: 111111
+      secretKey: xxxxxx
+      bucketName: litemall
+
+  # REDIS (RedisProperties)
+  # Redis数据库索引（默认为0）
+  redis:
+    database: 0
+    timeout: 0
+    # Redis服务器地址
+    host: 127.0.0.1
+    # Redis服务器连接端口
+    port: 6379
+    # Redis服务器连接密码（默认为空）
+    password:
+#    sentinel:
+#      master: master
+#      nodes:
+    # 连接池最大连接数（使用负值表示没有限制）
+    pool:
+      max-active: 8
+      # 连接池最大阻塞等待时间（使用负值表示没有限制）
+      max-wait: -1
+      # 连接池中的最大空闲连接
+      max-idle: 8
+      # 连接池中的最小空闲连接
+      min-idle: 0
+    cluster:
+      max-redirects: 10
+      nodes: 127.0.0.1:6080
+      # 连接超时时间（毫秒）
