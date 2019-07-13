@@ -21,6 +21,15 @@ function checkSession() {
   });
 }
 
+function checkToken() {
+  let tokenExpire = wx.getStorageSync('tokenExpire');
+  if (tokenExpire && tokenExpire > new Date().getTime()) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
 /**
  * Promise封装wx.login
  */
@@ -45,7 +54,6 @@ function login() {
  * 调用微信登录
  */
 function loginByWeixin(userInfo) {
-
   return new Promise(function(resolve, reject) {
     return login().then((res) => {
       //登录远程服务器
@@ -57,6 +65,7 @@ function loginByWeixin(userInfo) {
           //存储用户信息
           wx.setStorageSync('userInfo', res.data.userInfo);
           wx.setStorageSync('token', res.data.token);
+          wx.setStorageSync('tokenExpire', new Date().getTime() + 2 * 3600 * 1000);
 
           resolve(res);
         } else {
@@ -76,7 +85,7 @@ function loginByWeixin(userInfo) {
  */
 function checkLogin() {
   return new Promise(function(resolve, reject) {
-    if (wx.getStorageSync('userInfo') && wx.getStorageSync('token')) {
+    if (wx.getStorageSync('userInfo') && wx.getStorageSync('token') && checkToken()) {
       checkSession().then(() => {
         resolve(true);
       }).catch(() => {
