@@ -102,7 +102,7 @@ Page({
 
   viewUser: function (e) {
     let item = e.currentTarget.dataset.item;
-    wx.redirectTo({
+    wx.navigateTo({
       url: "/pages/social/personViewer/personViewer?id=" + item.id
     });
   },

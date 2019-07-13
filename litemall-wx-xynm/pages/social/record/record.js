@@ -104,6 +104,12 @@ Page({
   },
 
   chooseImage: function (e) {
+    if (!app.globalData.hasLogin) {
+      wx.showToast({
+        title: '请先登录~',
+      });
+      return;
+    }
     if (this.data.files.length >= 9) {
       util.showErrorToast('只能上传九张图片')
       return false;
@@ -148,22 +154,26 @@ Page({
       }
     })
   },
+
   bindInputValue(event) {
-
     let value = event.detail.value;
-
     //判断是否超过140个字符
     if (value && value.length > 200) {
       return false;
     }
-
     this.setData({
       content: event.detail.value,
     })
   },
-  upload_life_message: function () {
-    let that = this;
 
+  upload_life_message: function () {
+    if (!app.globalData.hasLogin) {
+      wx.showToast({
+        title: '请先登录~',
+      });
+      return;
+    }
+    let that = this;
     util.request(api.DynamicAdd, {
       title:"",
       content: that.data.content,
@@ -191,6 +201,13 @@ Page({
   },
 
   upload: function (res) {
+    if (!app.globalData.hasLogin) {
+      wx.showToast({
+        title: '请先登录~',
+      });
+      return;
+    }
+
     wx.showLoading({
       title: '上传中...',
       mask: true,

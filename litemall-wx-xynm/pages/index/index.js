@@ -10,7 +10,8 @@ Page({
     banner: [],
     channel: [],
     lists: [],
-    userId:0
+    userId:0,
+    userLogin: false
   },
 
   onShareAppMessage: function() {
@@ -29,13 +30,20 @@ Page({
   },
 
   onShow: function () {
-    let currentRecord = app.globalData.currentRecord;
-    let listsOneMore = this.data.lists;
-    listsOneMore.unshift(currentRecord);
-    if (currentRecord) {
-      this.setData({
-        lists: listsOneMore
-      })
+    // Need call api fetch data to refresh
+    if (app.globalData.userLogin != this.data.userLogin) {
+      this.getIndexData();
+    }
+    // Do need call api
+    else {
+      let currentRecord = app.globalData.currentRecord;
+      let listsOneMore = this.data.lists;
+      listsOneMore.unshift(currentRecord);
+      if (currentRecord) {
+        this.setData({
+          lists: listsOneMore
+        })
+      }
     }
     app.globalData.currentRecord = undefined;
   },
@@ -44,14 +52,19 @@ Page({
     let userInfo = wx.getStorageSync("userInfo");
     let currentRecord = app.globalData.currentRecord;
     this.setData({
-      userId: userInfo.id
+      userId: userInfo.id,
+      userLogin: app.globalData.hasLogin
     })
     this.getIndexData();
+    if (!app.globalData.hasLogin) {
+      wx.navigateTo({
+        url: "/pages/auth/login/login"
+      });
+    }
   },
 /************************ User defined methods ************* */
   previewImg: function (e) {
     var imgArr = e.currentTarget.dataset.item;
-    console.log(e.currentTarget.dataset.src);
     wx.previewImage({
       current: e.currentTarget.dataset.src,     //当前图片地址
       urls: imgArr,               //所有要预览的图片的地址集合 数组形式
@@ -76,12 +89,18 @@ Page({
 
   viewUser: function (e) {
     let item = e.currentTarget.dataset.item;
-    wx.redirectTo({
+    wx.navigateTo({
       url: "/pages/social/personViewer/personViewer?id=" + item.id
     });
   },
 
   clapDynamic: function (e) {
+    if (!app.globalData.hasLogin) {
+      wx.showToast({
+        title: '请先登录~',
+      });
+      return;
+    }
     let that = this;
     let item = e.currentTarget.dataset.item;
     let clapItem = {
@@ -106,12 +125,18 @@ Page({
   viewDynamic: function (e) {
     let that = this;
     let item = e.currentTarget.dataset.item;
-    wx.redirectTo({
+    wx.navigateTo({
       url: "/pages/social/dynamicDetail/dynamicDetail?id=" + item.id
     });
   },
 
   deleteDynamic: function(e) {
+    if (!app.globalData.hasLogin) {
+      wx.showToast({
+        title: '请先登录~',
+      });
+      return;
+    }
     let that = this;
     let item = e.currentTarget.dataset.item;
     let deleteItem = {

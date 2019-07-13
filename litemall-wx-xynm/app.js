@@ -23,6 +23,14 @@ App({
       this.globalData.hasLogin = true;
     }).catch(() => {
       this.globalData.hasLogin = false;
+      let userInfo = wx.getStorageSync("userInfo");
+      if (userInfo) {
+        user.loginByWeixin(userInfo).then(res => {
+          app.globalData.hasLogin = true;
+        }).catch((err) => {
+          app.globalData.hasLogin = false;
+        });
+      }
     });
   },
   globalData: {

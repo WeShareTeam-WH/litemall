@@ -49,14 +49,6 @@ Page({
     }
   },
 
-  goLogin() {
-    if (!this.data.hasLogin) {
-      wx.navigateTo({
-        url: "/pages/auth/login/login"
-      });
-    }
-  },
-
   /**
    * 生命周期函数--监听页面卸载
    */
@@ -108,7 +100,7 @@ Page({
 
   viewDetail: function(e){
     let item = e.currentTarget.dataset.item;
-    wx.redirectTo({
+    wx.navigateTo({
       url: '/pages/social/dynamicDetail/dynamicDetail?id=' + item.id,
     })
   }
