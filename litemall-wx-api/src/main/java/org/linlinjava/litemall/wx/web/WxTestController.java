@@ -1,6 +1,4 @@
 package org.linlinjava.litemall.wx.web;
-
-import jdk.internal.org.objectweb.asm.tree.TryCatchBlockNode;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.linlinjava.litemall.core.util.ResponseUtil;
@@ -14,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/wx/test")
 public class WxTestController {
-    private final Log logger = LogFactory.getLog(WxIndexController.class);
+    private final Log logger = LogFactory.getLog(WxTestController.class);
 
     /**
      * 测试数据
